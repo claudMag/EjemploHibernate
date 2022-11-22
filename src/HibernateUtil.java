@@ -15,7 +15,6 @@ public class HibernateUtil {
                     .configure("hibernate.cfg.xml").build();
             Metadata metadata = new MetadataSources(standardRegistry).getMetadataBuilder().build();
             sessionFactory = metadata.getSessionFactoryBuilder().build();
-
         } catch (HibernateException he) {
             System.out.println("Session Factory creation failure");
             throw he;
@@ -25,6 +24,5 @@ public class HibernateUtil {
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
-
 
 }

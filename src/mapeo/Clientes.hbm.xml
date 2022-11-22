@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping>
+    <!-- catalog es la basededatos, name es la clase java-->
+    <class catalog="empresa" name="mapeo.Cliente" optimistic-lock="version" table="clientes">
+        <!--id es para clave primaria, property para los otros atributos-->
+        <id name="identificador" type="java.lang.Integer">
+            <column name="id"/>
+        </id>
+        <property name="razon" type="java.lang.String">
+            <column name="razonsocial"/>
+        </property>
+        <property name="provincia" type="java.lang.String">
+            <column name="provincia"/>
+        </property>
+        <property name="limite" type="java.lang.Float">
+            <column name="limite_credito"/>
+        </property>
+    </class>
+</hibernate-mapping>
