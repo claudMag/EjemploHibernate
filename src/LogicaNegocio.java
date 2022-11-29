@@ -1,4 +1,5 @@
 import mapeo.Cliente;
+import mapeoAnotaciones.ClienteAnotaciones;
 import org.hibernate.Session;
 
 
@@ -43,8 +44,9 @@ public class LogicaNegocio {
     private void consultarClientes() {
        session.beginTransaction();
         //from ---> nombre de la clase, no se refiere al nombre de la tabla
-        List<Cliente> clienteList =session.createQuery("from Cliente").list();
-        for (Cliente c: clienteList) {
+        //List<Cliente> clienteList =session.createQuery("from Cliente").list();
+        List<ClienteAnotaciones> clienteList = session.createQuery("from ClienteAnotaciones").list();
+        for (ClienteAnotaciones c: clienteList) {
             System.out.println(c.toString());
         }
         session.getTransaction().commit();
@@ -60,7 +62,8 @@ public class LogicaNegocio {
         sc.nextLine();
 
         session.beginTransaction();
-        Cliente cliente = session.get(Cliente.class, id);
+        //Cliente cliente = session.get(Cliente.class, id);
+        ClienteAnotaciones cliente = session.get(ClienteAnotaciones.class, id);
 
         if (cliente!= null){
             System.out.println("razonsocial actualizada?");
@@ -86,7 +89,8 @@ public class LogicaNegocio {
         id = sc.nextInt();
 
         session.beginTransaction();
-        Cliente cliente = session.get(Cliente.class, id);
+        //Cliente cliente = session.get(Cliente.class, id);
+        ClienteAnotaciones cliente = session.get(ClienteAnotaciones.class, id);
         if (cliente != null) {
             session.delete(cliente);
             System.out.println("El cliente con el identificador "+id+" se ha borrado correctamente");
@@ -102,7 +106,8 @@ public class LogicaNegocio {
         id = sc.nextInt();
 
         session.beginTransaction();
-        Cliente cliente = session.get(Cliente.class, id);
+        ClienteAnotaciones cliente = session.get(ClienteAnotaciones.class, id);
+       // Cliente cliente = session.get(Cliente.class, id);
 
         if (cliente!= null){
             System.out.println(cliente);
@@ -130,7 +135,8 @@ public class LogicaNegocio {
         limite = sc.nextFloat();
 
         session.beginTransaction();
-        Cliente cliente = new Cliente(id, razonSocial, provincia, limite);
+        ClienteAnotaciones cliente = new ClienteAnotaciones(id, razonSocial, provincia, limite);
+        //Cliente cliente = new Cliente(id, razonSocial, provincia, limite);
         session.save(cliente);
         session.getTransaction().commit();
 

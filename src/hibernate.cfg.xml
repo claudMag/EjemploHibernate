@@ -10,7 +10,9 @@
     <property name="hibernate.connection.password">hibernate</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <mapping resource="mapeo/Clientes.hbm.xml"/>
-    <!-- DB schema will be updated if needed -->
+    <!--<mapping resource="mapeo/Clientes.hbm.xml"/>-->
+    <mapping class="mapeoAnotaciones.ClienteAnotaciones"/>
+    <mapping class="mapeoAnotaciones.Proveedor"/>
+    <mapping class="mapeoAnotaciones.Telefono"/>
   </session-factory>
 </hibernate-configuration>
